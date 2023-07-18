@@ -12,7 +12,8 @@ class SidebarTableCellView: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var labelConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var countLabel: UILabel!
+    
     public var sidebarItem: SidebarItem?
 
     func configure(sidebarItem: SidebarItem) {
@@ -33,6 +34,7 @@ class SidebarTableCellView: UITableViewCell {
 
         label.font = font
         label.text = sidebarItem.name
+        countLabel.text = "\(sidebarItem.project?.getNotes().count ?? 0)"
     }
 
     override func layoutSubviews() {
